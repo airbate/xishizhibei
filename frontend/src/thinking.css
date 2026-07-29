@@ -1,0 +1,65 @@
+/* Long-running analysis state: keep the user oriented while InfiniSynapse works. */
+.progress {
+  margin-top: 68px;
+}
+
+.progress::before {
+  content: 'AI 正在思考  ·  InfiniSynapse 正在分析数据';
+  position: absolute;
+  left: 0;
+  top: -48px;
+  color: #4d7f5c;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  animation: thinkingGlow 1.8s ease-in-out infinite;
+}
+
+.progress::after {
+  content: '•••';
+  position: absolute;
+  left: 214px;
+  top: -49px;
+  color: #73aa68;
+  letter-spacing: 4px;
+  font-size: 12px;
+  animation: thinkingDots 1.2s steps(4, end) infinite;
+}
+
+.progress > div {
+  position: relative;
+  overflow: visible;
+}
+
+.progress > div::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #a7d37b;
+  box-shadow: 0 0 0 5px #a7d37b33, 0 0 22px #8cbd70;
+  animation: thinkingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes thinkingGlow {
+  0%, 100% { opacity: .55; transform: translateY(1px); }
+  50% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes thinkingDots {
+  0% { opacity: .2; clip-path: inset(0 70% 0 0); }
+  50% { opacity: 1; clip-path: inset(0 35% 0 0); }
+  100% { opacity: .2; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes thinkingPulse {
+  0%, 100% { transform: scale(.8); opacity: .65; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@media (max-width: 800px) {
+  .progress::after { left: 206px; }
+}

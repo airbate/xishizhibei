@@ -1,0 +1,12 @@
+services:
+  xishizhibei:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - xishizhibei-data:/app/storage
+
+volumes:
+  xishizhibei-data:
