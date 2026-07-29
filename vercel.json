@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm --prefix frontend ci --no-audit --no-fund && npm --prefix frontend run build",
+  "env": {
+    "APP_DATA_DIR": "/tmp/xishizhibei"
+  }
+}
